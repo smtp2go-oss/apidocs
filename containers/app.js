@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const TopBar = require('../components/top-bar')
+const NavBar = require('../components/nav-bar')
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <TopBar />
+        <NavBar />
 
       </div>
     )

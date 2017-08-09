@@ -1,0 +1,13 @@
+
+#navBar{
+  background-color: #222;
+  height: 45px;
+  padding: 0px;
+  z-index: 1000px;
+}
+
+#navLogo{
+    width: 170px;
+    height: 40px;
+    float: left;
+  }
