@@ -1,0 +1,34 @@
+
+#navBar{
+  background-color: #222;
+  height: 45px;
+  padding: 0px;
+  z-index: 1000px;
+}
+
+#navLogo{
+    width: 170px;
+    height: 40px;
+    float: left;
+  }
+
+#langSelect{
+  float: right;
+  background-color: white;
+}
+
+#selectedLang {
+  text-align: center;
+  padding: 10px;
+  cursor: default;
+  width: 80px;
+  height: 25px;
+}
+
+.langChoice {
+  cursor: pointer;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
