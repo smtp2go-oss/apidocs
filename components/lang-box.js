@@ -8,14 +8,14 @@ class LangBox extends React.Component {
     const display = langBoxShowing
       ? (
         <div>
-          <div class='langChoice'>{selectedLang}</div>
-          <div class='langChoice'>Javascript</div>
-          <div class='langChoice'>Python</div>
-          <div class='langChoice'>C#</div>
+          <div id='selectedLang'>{selectedLang}</div>
+          <div className='langChoice'>Javascript</div>
+          <div className='langChoice'>Python</div>
+          <div className='langChoice'>C#</div>
         </div>
       )
       : (
-        <div class='langChoice'>{selectedLang}</div>
+        <div id='selectedLang'>{selectedLang}</div>
       )
     return (
       <div
