@@ -21,7 +21,7 @@ class LangBox extends React.Component {
     }
     function displayOptions(languages){
       const displayLangs = languages.map(displayOption)
-      displayLangs.unshift(<div id='selectedLang'>{selectedLang}</div>)
+      displayLangs.unshift(<div key='selectedLang' id='selectedLang'>{selectedLang}</div>)
       return displayLangs
     }
     function handleLangSelect (language) {
