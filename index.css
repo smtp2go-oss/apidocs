@@ -11,3 +11,8 @@
     height: 40px;
     float: left;
   }
+
+#langSelect{
+  float: right;
+  background-color: white;
+}

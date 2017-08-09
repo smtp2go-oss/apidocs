@@ -1,3 +1,5 @@
 module.exports = {
-  route: '/'
+  route: '/',
+  selectedLang: 'Javascript',
+  langBoxShowing: false
 }
