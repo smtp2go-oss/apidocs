@@ -1,5 +1,11 @@
 module.exports = {
   route: '/',
   selectedLang: 'Javascript',
-  langBoxShowing: false
+  langBoxShowing: false,
+  langOptions: [
+    'Javascript',
+    'NodeJS',
+    'PHP',
+    'Ruby'
+  ]
 }
