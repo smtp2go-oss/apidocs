@@ -35,7 +35,7 @@ class Contents extends React.Component {
       let display = [(
         <div
           key={section.id}
-          className='sectionHeader'
+          className='contentsHeader'
           onClick={()=>dispatch({type: 'TOGGLE_SECTION_HIDDEN', payload: section.id})}
         >
           {`+ ${section.header}`}
@@ -48,13 +48,17 @@ class Contents extends React.Component {
     }
 
     function formatSubheader (subheader) {
-      return <div>{subheader}</div>
+      return <div
+        className='contentsSubheader'
+      >
+        {subheader}
+      </div>
     }
 
     return (
       <div>
         <div
-          className='contents'
+          className='contentsHeader'
           id='contentsReadme'
           onClick={()=>console.log('clicked README')}
         >README

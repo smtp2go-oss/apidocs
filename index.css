@@ -30,7 +30,45 @@
   float: left;
   background-color: #444;
   height: 94vh;
-  width: 25vh
+  width: 25vh;
+
+}
+
+#searchBar {
+  margin-top: 4vh;
+  margin-right: 1.5vh;
+  margin-left: 1.5vh;
+  height: 3vh;
+  width: 86%;
+}
+
+#contentsReadme {
+  text-align: center;
+  margin-top: 3vh;
+}
+
+.contentsHeader {
+  margin-top: 2vh;
+  margin-left: 1.5vh;
+  margin-right: 1.5vh;
+  padding: 1vh;
+  text-align: left;
+  background-color: #333;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+}
+
+.contentsSubheader {
+  margin-top: 1vh;
+  margin-left: 4vh;
+  margin-right: 1.5vh;
+  padding: .6vh;
+  text-align: left;
+  background-color: #333;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
 }
 
 .langChoice {
