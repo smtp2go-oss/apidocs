@@ -4,10 +4,25 @@ class SearchBar extends React.Component {
 
 
   render () {
+
+    const dispatch = this.props.dispatch
+
+    const state = this.props.state || {searchInput: ''}
+    const { searchInput } = state
+
     return (
-      <div>
-        search bar
-      </div>
+      <form>
+        <input
+          id='searchBar'
+          placeholder='Search'
+          ref='searchInput'
+          onChange={()=>dispatch({
+            type: 'SEARCH_INPUT_CHANGE',
+            payload: this.refs.searchInput.value
+          })}
+          value={searchInput}
+        />
+      </form>
     )
   }
 }

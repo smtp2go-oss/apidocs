@@ -8,7 +8,7 @@ class SideBar extends React.Component {
   render () {
     return (
       <div id='sideBar'>
-        <SearchBar />
+        <SearchBar {...this.props}/>
         <Contents {...this.props}/>
       </div>
     )
