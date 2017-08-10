@@ -36,7 +36,19 @@ class Contents extends React.Component {
         <div
           key={section.id}
           className='contentsHeader'
-          onClick={()=>dispatch({type: 'TOGGLE_SECTION_HIDDEN', payload: section.id})}
+          style= {{'backgroundColor': section.backgroundColor}}
+          onMouseEnter={()=> dispatch({
+            type: 'BUTTON_MOUSE_ENTER',
+            payload: section.id
+          })}
+          onMouseLeave={()=> dispatch({
+            type: 'BUTTON_MOUSE_LEAVE',
+            payload: section.id
+          })}
+          onClick={()=>dispatch({
+            type: 'TOGGLE_SECTION_HIDDEN',
+            payload: section.id
+          })}
         >
           {`${section.expandIcon} ${section.header}`}
         </div>

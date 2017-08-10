@@ -15,6 +15,18 @@ module.exports = function contentsMenu (state = initialState.contentsMenu, actio
 
       break;
 
+      case 'BUTTON_MOUSE_ENTER':
+        state[action.payload].backgroundColor = '#666'
+        return state
+
+        break;
+
+      case 'BUTTON_MOUSE_LEAVE':
+        state[action.payload].backgroundColor = null
+        return state
+
+        break;
+
     default:
       return state
   }
