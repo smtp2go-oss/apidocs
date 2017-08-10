@@ -1,5 +1,6 @@
 module.exports = {
   route: '/',
+  page: '/readme',
   selectedLang: 'Javascript',
   langBoxShowing: false,
   langOptions: [
@@ -20,7 +21,8 @@ module.exports = {
         '/stats/email_summary',
         '/stats/email_unsubs'
       ],
-      expanded: false
+      expanded: false,
+      expandIcon: '+'
     },
     {
       id: 1,
@@ -30,7 +32,8 @@ module.exports = {
         '/email/search',
         '/email/send'
       ],
-      expanded: false
+      expanded: false,
+      expandIcon: '+'
     },
     {
       id: 2,
@@ -40,7 +43,8 @@ module.exports = {
         '/blocklist/remove',
         '/blocklist/view'
       ],
-      expanded: false
+      expanded: false,
+      expandIcon: '+'
     },
     {
       id: 3,
@@ -51,7 +55,8 @@ module.exports = {
         '/users/smtp/remove',
         '/users/smtp/view'
       ],
-      expanded: false
+      expanded: false,
+      expandIcon: '+'
     }
   ],
   searchInput: ''

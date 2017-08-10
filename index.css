@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
 
 #navBar{
   background-color: #222;
@@ -13,23 +17,23 @@
 #langSelect{
   float: right;
   background-color: white;
+  width: 15vh;
 }
 
 #selectedLang {
-  background-color: #777;
+  background-color: #444;
   text-align: center;
   padding-top: 1.5vh;
-  padding-left: 1vh;
-  padding-right: 1vh;
   cursor: default;
-  width: 7vh;
+  width: 15vh;
   height: 3.5vh;
+  color: #eee;
 }
 
 #sideBar {
   float: left;
   background-color: #444;
-  height: 94vh;
+  height: 95vh;
   width: 25vh;
 
 }
@@ -55,7 +59,7 @@
   text-align: left;
   background-color: #333;
   cursor: pointer;
-  color: white;
+  color: #eee;
   font-size: 18px;
 }
 
@@ -67,7 +71,7 @@
   text-align: left;
   background-color: #333;
   cursor: pointer;
-  color: white;
+  color: #eee;
   font-size: 16px;
 }
 

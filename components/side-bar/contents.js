@@ -38,7 +38,7 @@ class Contents extends React.Component {
           className='contentsHeader'
           onClick={()=>dispatch({type: 'TOGGLE_SECTION_HIDDEN', payload: section.id})}
         >
-          {`+ ${section.header}`}
+          {`${section.expandIcon} ${section.header}`}
         </div>
       )]
       if (section.expanded) {
@@ -50,6 +50,7 @@ class Contents extends React.Component {
     function formatSubheader (subheader) {
       return <div
         className='contentsSubheader'
+        onClick={()=> dispatch({type: 'NAVIGATE', payload: subheader})}
       >
         {subheader}
       </div>
@@ -60,7 +61,7 @@ class Contents extends React.Component {
         <div
           className='contentsHeader'
           id='contentsReadme'
-          onClick={()=>console.log('clicked README')}
+          onClick={()=> dispatch({type: 'NAVIGATE', payload: '/readme'})}
         >README
         </div>
         {contentsHeaders}

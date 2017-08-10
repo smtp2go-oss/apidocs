@@ -12,7 +12,7 @@ class LangBox extends React.Component {
     const display = langBoxShowing
     ? displayOptions(langOptions)
     : (
-      <div id='selectedLang'>{selectedLang}</div>
+      <div id='selectedLang'>{`<> ${selectedLang}`}</div>
     )
 
     function displayOption(language){
@@ -25,7 +25,7 @@ class LangBox extends React.Component {
 
     function displayOptions(languages){
       let displayLangs = languages.map(displayOption)
-      displayLangs.unshift(<div key='selectedLang' id='selectedLang'>{selectedLang}</div>)
+      displayLangs.unshift(<div key='selectedLang' id='selectedLang'>{`<> ${selectedLang}`}</div>)
       return displayLangs
     }
 
