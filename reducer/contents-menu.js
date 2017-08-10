@@ -8,6 +8,9 @@ module.exports = function contentsMenu (state = initialState.contentsMenu, actio
           item.expandIcon = item.expanded
             ? '+'
             : '-'
+          item.backgroundColor = item.expanded
+          ? '#666'
+          : '#29e'
           item.expanded = !item.expanded
         }
         return item
@@ -16,13 +19,17 @@ module.exports = function contentsMenu (state = initialState.contentsMenu, actio
       break;
 
       case 'BUTTON_MOUSE_ENTER':
-        state[action.payload].backgroundColor = '#666'
+        if (state[action.payload].backgroundColor === null) {
+          state[action.payload].backgroundColor = '#666'
+        }
         return state
 
         break;
 
       case 'BUTTON_MOUSE_LEAVE':
-        state[action.payload].backgroundColor = null
+        if (state[action.payload].backgroundColor === '#666') {
+          state[action.payload].backgroundColor = null
+        }
         return state
 
         break;

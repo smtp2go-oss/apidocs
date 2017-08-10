@@ -5,8 +5,12 @@ class Contents extends React.Component {
   render () {
 
     const dispatch = this.props.dispatch
-    const state = this.props.state || {contentsMenu: [{header: '', subheaders: []}], searchInput: ''}
-    const { contentsMenu, searchInput } = state
+    const state = this.props.state || {
+      readmeButton: '',
+      contentsMenu: [{header: '', subheaders: []}],
+      searchInput: ''
+    }
+    const { contentsMenu, searchInput, readmeButton } = state
 
     const shownSections = contentsMenu.filter(searchSection).map(searchSection)
     const contentsHeaders = shownSections.map(formatDisplay)
@@ -73,7 +77,10 @@ class Contents extends React.Component {
         <div
           className='contentsHeader'
           id='contentsReadme'
-          onClick={()=> dispatch({type: 'NAVIGATE', payload: '/readme'})}
+          style= {{'backgroundColor': readmeButton.backgroundColor}}
+          onClick={()=> dispatch({type: 'CLICKED_README'})}
+          onMouseEnter={()=> dispatch({type: 'README_MOUSE_ENTER'})}
+          onMouseLeave={()=> dispatch({type: 'README_MOUSE_LEAVE'})}
         >README
         </div>
         {contentsHeaders}

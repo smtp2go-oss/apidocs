@@ -9,6 +9,9 @@ module.exports = {
     'PHP',
     'Ruby'
   ],
+  readmeButton: {
+    backgroundColor: null
+  },
   contentsMenu: [
     {
       id: 0,
