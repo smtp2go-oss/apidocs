@@ -1,5 +1,5 @@
 const initialState = require('../state')
-module.exports = function selectedLang (state = 'Javascript', action) {
+module.exports = function selectedLang (state = initialState.selectedLang, action) {
   switch (action.type) {
 
     case 'TOGGLE_DISPLAY_LANG':

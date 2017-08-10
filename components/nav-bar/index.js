@@ -5,8 +5,10 @@ const LangBox = require('./lang-box')
 class NavBar extends React.Component {
 
   render () {
+
     const state = this.props.state || {selectedLang: null}
     const { selectedLang } = state
+
     return (
       <div id='navBar'>
         <img

@@ -1,5 +1,5 @@
 const initialState = require('../state')
-module.exports = function langBoxShowing (state = false, action) {
+module.exports = function langBoxShowing (state = initialState.langBoxShowing, action) {
   switch (action.type) {
 
     case 'TOGGLE_LANG_BOX':
