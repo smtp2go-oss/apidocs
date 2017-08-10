@@ -1,8 +1,8 @@
 const initialState = require('../state')
-module.exports = function selectedLang (state = initialState.selectedLang, action) {
+module.exports = function page (state = initialState.page, action) {
   switch (action.type) {
 
-    case 'TOGGLE_DISPLAY_LANG':
+    case 'NAVIGATE':
       return action.payload
 
       break;

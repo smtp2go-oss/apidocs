@@ -1,8 +1,8 @@
 const initialState = require('../state')
-module.exports = function selectedLang (state = initialState.selectedLang, action) {
+module.exports = function searchInput (state = initialState.searchInput, action) {
   switch (action.type) {
 
-    case 'TOGGLE_DISPLAY_LANG':
+    case 'SEARCH_INPUT_CHANGE':
       return action.payload
 
       break;
