@@ -12,6 +12,10 @@ module.exports = {
   readmeButton: {
     backgroundColor: null
   },
+  subheaderStyles: {
+    selected: null,
+    backgroundColor: null
+  },
   contentsMenu: [
     {
       id: 0,

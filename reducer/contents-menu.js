@@ -5,16 +5,26 @@ module.exports = function contentsMenu (state = initialState.contentsMenu, actio
     case 'TOGGLE_SECTION_HIDDEN':
       return state.map(item => {
         if (item.id === action.payload) {
-          item.expandIcon = item.expanded
-            ? '+'
-            : '-'
-          item.backgroundColor = item.expanded
-          ? '#666'
-          : '#29e'
-          item.expanded = !item.expanded
+          item.expandIcon = '-'
+          item.backgroundColor = '#29e'
+          item.expanded = true
+        }else{
+          item.expandIcon = '+'
+          item.backgroundColor = null
+          item.expanded = false
         }
         return item
       })
+      //doesn't allow the dropdown to be closed without clicking on another
+      //dropdown, can be changed easily.
+
+    case 'CLICKED_README':
+    return state.map(item => {
+      item.expandIcon = '+'
+      item.backgroundColor = null
+      item.expanded = false
+      return item
+    })
 
       break;
 

@@ -1,12 +1,14 @@
 const React = require('react')
 
+const initialState = require('../../state')
+
 class LangBox extends React.Component {
 
 
   render () {
 
     const dispatch = this.props.dispatch
-    const state = this.props.state || {selectedLang: null, langOptions: []}
+    const state = this.props.state || initialState
     const { selectedLang, langBoxShowing, langOptions } = state
 
     const display = langBoxShowing

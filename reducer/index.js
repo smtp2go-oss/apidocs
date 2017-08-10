@@ -8,6 +8,7 @@ const contentsMenu = require('./contents-menu')
 const searchInput = require('./search-input')
 const page = require('./page')
 const readmeButton = require('./readme-button')
+const subheaderStyles = require('./subheader-styles')
 
 module.exports = combineReducers({
   selectedLang,
@@ -17,5 +18,6 @@ module.exports = combineReducers({
   contentsMenu,
   searchInput,
   page,
-  readmeButton
+  readmeButton,
+  subheaderStyles
 })

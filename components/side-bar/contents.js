@@ -1,16 +1,14 @@
 const React = require('react')
 
+const initialState = require('../../state')
+
 class Contents extends React.Component {
 
   render () {
 
     const dispatch = this.props.dispatch
-    const state = this.props.state || {
-      readmeButton: '',
-      contentsMenu: [{header: '', subheaders: []}],
-      searchInput: ''
-    }
-    const { contentsMenu, searchInput, readmeButton } = state
+    const state = this.props.state || initialState
+    const { contentsMenu, searchInput, readmeButton, subheaderStyles } = state
 
     const shownSections = contentsMenu.filter(searchSection).map(searchSection)
     const contentsHeaders = shownSections.map(formatDisplay)
@@ -64,9 +62,21 @@ class Contents extends React.Component {
     }
 
     function formatSubheader (subheader) {
+      const backgroundColor = (subheaderStyles.selected === subheader)
+        ? subheaderStyles.backgroundColor
+        : null
       return <div
         className='contentsSubheader'
         onClick={()=> dispatch({type: 'NAVIGATE', payload: subheader})}
+        onMouseEnter={()=> dispatch({
+          type: 'SUBHEADER_MOUSE_ENTER',
+          payload: subheader
+        })}
+        onMouseLeave={()=> dispatch({
+          type: 'SUBHEADER_MOUSE_LEAVE',
+          payload: subheader
+        })}
+        style={{backgroundColor: backgroundColor}}
       >
         {subheader}
       </div>
