@@ -48,7 +48,7 @@ class Contents extends React.Component {
             payload: section.id
           })}
           onClick={()=>dispatch({
-            type: 'TOGGLE_SECTION_HIDDEN',
+            type: 'TOGGLE_SECTION_DISPLAY',
             payload: section.id
           })}
         >

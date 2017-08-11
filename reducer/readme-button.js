@@ -24,7 +24,7 @@ module.exports = function readmeButton (state = initialState.readmeButton, actio
 
       break;
 
-    case 'TOGGLE_SECTION_HIDDEN':
+    case 'TOGGLE_SECTION_DISPLAY':
       state.backgroundColor = null
       return state
 
