@@ -14,7 +14,7 @@ module.exports = {
     backgroundColor: null
   },
   readmeButton: {
-    backgroundColor: null
+    backgroundColor: '#29e'
   },
   subheaderStyles: {
     selected: null,
@@ -23,6 +23,7 @@ module.exports = {
   contentsMenu: [
     {
       id: 0,
+      page: '/statistics',
       header: 'Statistics',
       subheaders: [
         '/stats/email_bounces',
@@ -38,6 +39,7 @@ module.exports = {
     },
     {
       id: 1,
+      page: '/emails',
       header: 'Emails',
       subheaders: [
         '/email/mime',
@@ -50,6 +52,7 @@ module.exports = {
     },
     {
       id: 2,
+      page: '/emailBlocklist',
       header: 'Email Blocklist',
       subheaders: [
         '/blocklist/add',
@@ -62,6 +65,7 @@ module.exports = {
     },
     {
       id: 3,
+      page: '/smtpUsers',
       header: 'SMTP Users',
       subheaders: [
         '/users/smtp/add',
