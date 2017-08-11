@@ -9,7 +9,7 @@ class LangBox extends React.Component {
 
     const dispatch = this.props.dispatch
     const state = this.props.state || initialState
-    const { selectedLang, langBoxShowing, langOptions } = state
+    const { selectedLang, langBoxShowing, langOptions, langBoxStyles } = state
 
     const display = langBoxShowing
     ? displayOptions(langOptions)
@@ -18,9 +18,21 @@ class LangBox extends React.Component {
     )
 
     function displayOption(language){
+      const backgroundColor = (langBoxStyles.selected === language)
+        ? langBoxStyles.backgroundColor
+        : null
       return <div
         className='langChoice'
+        style={{backgroundColor: backgroundColor}}
         onClick={()=>handleLangSelect(language)}
+        onMouseEnter={()=> dispatch({
+          type: 'LANGBOX_MOUSE_ENTER',
+          payload: language
+        })}
+        onMouseLeave={()=> dispatch({
+          type: 'LANGBOX_MOUSE_LEAVE',
+          payload: language
+        })}
         key={language}
       >{language}</div>
     }

@@ -9,6 +9,10 @@ module.exports = {
     'PHP',
     'Ruby'
   ],
+  langBoxStyles: {
+    selected: null,
+    backgroundColor: null
+  },
   readmeButton: {
     backgroundColor: null
   },
