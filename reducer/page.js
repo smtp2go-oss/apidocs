@@ -7,6 +7,11 @@ module.exports = function page (state = initialState.page, action) {
 
       break;
 
+    case 'CLICKED_README':
+      return '/readme'
+
+      break;
+
     default:
       return state
   }

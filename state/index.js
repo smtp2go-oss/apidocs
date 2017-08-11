@@ -14,7 +14,7 @@ module.exports = {
     backgroundColor: null
   },
   readmeButton: {
-    backgroundColor: null
+    backgroundColor: '#29e'
   },
   subheaderStyles: {
     selected: null,
