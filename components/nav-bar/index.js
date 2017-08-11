@@ -1,12 +1,13 @@
 const React = require('react')
 
+const initialState = require('../../state')
 const LangBox = require('./lang-box')
 
 class NavBar extends React.Component {
 
   render () {
 
-    const state = this.props.state || {selectedLang: null}
+    const state = this.props.state || initialState
     const { selectedLang } = state
 
     return (

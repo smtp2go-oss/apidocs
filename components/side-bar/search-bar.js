@@ -1,13 +1,14 @@
 const React = require('react')
 
-class SearchBar extends React.Component {
+const initialState = require('../../state')
 
+class SearchBar extends React.Component {
 
   render () {
 
     const dispatch = this.props.dispatch
 
-    const state = this.props.state || {searchInput: ''}
+    const state = this.props.state || initialState
     const { searchInput } = state
 
     return (

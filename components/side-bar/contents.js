@@ -1,12 +1,14 @@
 const React = require('react')
 
+const initialState = require('../../state')
+
 class Contents extends React.Component {
 
   render () {
 
     const dispatch = this.props.dispatch
-    const state = this.props.state || {contentsMenu: [{header: '', subheaders: []}], searchInput: ''}
-    const { contentsMenu, searchInput } = state
+    const state = this.props.state || initialState
+    const { contentsMenu, searchInput, readmeButton, subheaderStyles } = state
 
     const shownSections = contentsMenu.filter(searchSection).map(searchSection)
     const contentsHeaders = shownSections.map(formatDisplay)
@@ -36,7 +38,19 @@ class Contents extends React.Component {
         <div
           key={section.id}
           className='contentsHeader'
-          onClick={()=>dispatch({type: 'TOGGLE_SECTION_HIDDEN', payload: section.id})}
+          style= {{'backgroundColor': section.backgroundColor}}
+          onMouseEnter={()=> dispatch({
+            type: 'BUTTON_MOUSE_ENTER',
+            payload: section.id
+          })}
+          onMouseLeave={()=> dispatch({
+            type: 'BUTTON_MOUSE_LEAVE',
+            payload: section.id
+          })}
+          onClick={()=>dispatch({
+            type: 'TOGGLE_SECTION_HIDDEN',
+            payload: section.id
+          })}
         >
           {`${section.expandIcon} ${section.header}`}
         </div>
@@ -48,9 +62,21 @@ class Contents extends React.Component {
     }
 
     function formatSubheader (subheader) {
+      const backgroundColor = (subheaderStyles.selected === subheader)
+        ? subheaderStyles.backgroundColor
+        : null
       return <div
         className='contentsSubheader'
         onClick={()=> dispatch({type: 'NAVIGATE', payload: subheader})}
+        onMouseEnter={()=> dispatch({
+          type: 'SUBHEADER_MOUSE_ENTER',
+          payload: subheader
+        })}
+        onMouseLeave={()=> dispatch({
+          type: 'SUBHEADER_MOUSE_LEAVE',
+          payload: subheader
+        })}
+        style={{backgroundColor: backgroundColor}}
       >
         {subheader}
       </div>
@@ -61,7 +87,10 @@ class Contents extends React.Component {
         <div
           className='contentsHeader'
           id='contentsReadme'
-          onClick={()=> dispatch({type: 'NAVIGATE', payload: '/readme'})}
+          style= {{'backgroundColor': readmeButton.backgroundColor}}
+          onClick={()=> dispatch({type: 'CLICKED_README'})}
+          onMouseEnter={()=> dispatch({type: 'README_MOUSE_ENTER'})}
+          onMouseLeave={()=> dispatch({type: 'README_MOUSE_LEAVE'})}
         >README
         </div>
         {contentsHeaders}

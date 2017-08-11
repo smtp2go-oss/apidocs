@@ -9,6 +9,17 @@ module.exports = {
     'PHP',
     'Ruby'
   ],
+  langBoxStyles: {
+    selected: null,
+    backgroundColor: null
+  },
+  readmeButton: {
+    backgroundColor: null
+  },
+  subheaderStyles: {
+    selected: null,
+    backgroundColor: null
+  },
   contentsMenu: [
     {
       id: 0,
@@ -22,6 +33,7 @@ module.exports = {
         '/stats/email_unsubs'
       ],
       expanded: false,
+      backgroundColor: null,
       expandIcon: '+'
     },
     {
@@ -33,6 +45,7 @@ module.exports = {
         '/email/send'
       ],
       expanded: false,
+      backgroundColor: null,
       expandIcon: '+'
     },
     {
@@ -44,6 +57,7 @@ module.exports = {
         '/blocklist/view'
       ],
       expanded: false,
+      backgroundColor: null,
       expandIcon: '+'
     },
     {
@@ -56,6 +70,7 @@ module.exports = {
         '/users/smtp/view'
       ],
       expanded: false,
+      backgroundColor: null,
       expandIcon: '+'
     }
   ],
