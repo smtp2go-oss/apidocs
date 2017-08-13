@@ -65,21 +65,24 @@ class Contents extends React.Component {
       const backgroundColor = (subheaderStyles.selected === subheader)
         ? subheaderStyles.backgroundColor
         : null
-      return <div
-        className='contentsSubheader'
-        onClick={()=> dispatch({type: 'NAVIGATE', payload: subheader})}
-        onMouseEnter={()=> dispatch({
-          type: 'SUBHEADER_MOUSE_ENTER',
-          payload: subheader
-        })}
-        onMouseLeave={()=> dispatch({
-          type: 'SUBHEADER_MOUSE_LEAVE',
-          payload: subheader
-        })}
-        style={{backgroundColor: backgroundColor}}
-      >
-        {subheader}
-      </div>
+      return (
+          <a href={`#${subheader}`} className='subheaderLink'>
+            <div
+              className='contentsSubheader'
+              onMouseEnter={()=> dispatch({
+                type: 'SUBHEADER_MOUSE_ENTER',
+                payload: subheader
+              })}
+              onMouseLeave={()=> dispatch({
+                type: 'SUBHEADER_MOUSE_LEAVE',
+                payload: subheader
+              })}
+              style={{backgroundColor: backgroundColor}}
+            >
+              {subheader}
+            </div>
+          </a>
+      )
     }
 
     return (

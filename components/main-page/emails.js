@@ -5,7 +5,7 @@ class Emails extends React.Component {
   render () {
 
     return (
-      <div>
+      <div className='docContainer'>
         Emails
       </div>
     )
