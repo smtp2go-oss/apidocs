@@ -8,8 +8,8 @@ class ExpandTab extends React.Component {
 
     return (
       <div
-        style={{height: '5vh', cursor: 'pointer'}}
-        onClick={()=>dispatch({type:'TOGGLE_SIDE_BAR', payload: true})}
+        style={{height: '5vh', cursor: 'pointer', position: 'fixed'}}
+        onClick={()=>dispatch({type:'TOGGLE_SIDE_BAR'})}
       >
       <img
         id='expandTab'

@@ -3,7 +3,7 @@ module.exports = function sideBarMobile (state = initialState.sideBarMobile, act
   switch (action.type) {
 
     case 'TOGGLE_SIDE_BAR':
-      return action.payload
+      return !state
 
       break;
 
