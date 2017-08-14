@@ -40,8 +40,35 @@ body {
   margin-top: 5vh;
   background-color: #444;
   height: 100vh;
-  width: 18%;
-  z-index: 0;
+  width: 25%;
+}
+
+#sideBarMobile {
+  float: left;
+  position: fixed;
+  margin-top: 5vh;
+  background-color: #444;
+  height: 100vh;
+  width: 60%;
+}
+
+#expandTab {
+  height: auto;
+  width: 8%;
+  float: right;
+  margin-top: 6vh;
+  margin-left: 2%;
+  z-index: -1; position: fixed;
+}
+
+#hideTab {
+  height: auto;
+  width: 25%;
+  float: right;
+  margin-top: .8vh;
+  margin-left: 35%;
+  z-index: -1; position: fixed;
+  cursor: pointer;
 }
 
 #searchBar {
@@ -88,7 +115,7 @@ body {
 
 .docContainer {
   float: left;
-  margin-left: 20%;
+  margin-left: 27%;
   margin-top: 6vh;
   margin-bottom: 5vh;
   font-size: 115%;

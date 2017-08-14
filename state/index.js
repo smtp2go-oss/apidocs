@@ -3,6 +3,7 @@ module.exports = {
   page: '/readme',
   selectedLang: 'Javascript',
   langBoxShowing: false,
+  sideBarMobile: true,
   langOptions: [
     'Javascript',
     'NodeJS',
