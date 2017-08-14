@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/smtp2go-oss/apidocs#readme",
   "dependencies": {
-    "react-simple-dropdown": "^3.0.0"
+    "react-responsive": "^1.3.4"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.5.0",

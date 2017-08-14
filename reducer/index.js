@@ -10,6 +10,7 @@ const page = require('./page')
 const readmeButton = require('./readme-button')
 const subheaderStyles = require('./subheader-styles')
 const langBoxStyles = require('./lang-box-styles')
+const sideBarMobile = require('./side-bar-mobile')
 
 module.exports = combineReducers({
   selectedLang,
@@ -21,5 +22,6 @@ module.exports = combineReducers({
   page,
   readmeButton,
   subheaderStyles,
-  langBoxStyles
+  langBoxStyles,
+  sideBarMobile
 })

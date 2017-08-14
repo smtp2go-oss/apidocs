@@ -13,10 +13,20 @@ body {
 }
 
 #navLogo{
+  margin-left: 13%;
+  width: auto;
+  height: 5vh;
+  float: left;
+}
+
+@media (min-width: 750px) {
+  #navLogo{
+    margin-left: 0%;
     width: auto;
     height: 5vh;
     float: left;
   }
+}
 
 #langSelect{
   float: right;
@@ -40,8 +50,25 @@ body {
   margin-top: 5vh;
   background-color: #444;
   height: 100vh;
-  width: 18%;
-  z-index: 0;
+  width: 350px;
+}
+
+#sideBarMobile {
+  float: left;
+  position: fixed;
+  margin-top: 5vh;
+  background-color: #444;
+  height: 100vh;
+  width: 300px;
+}
+
+#expandTab {
+  height: 5vh;
+  width: 8%;
+  float: right;
+  margin-top: .1vh;
+  margin-left: 2%;
+  z-index: -1; position: fixed;
 }
 
 #searchBar {
@@ -88,10 +115,22 @@ body {
 
 .docContainer {
   float: left;
-  margin-left: 20%;
+  margin-left: 0px;
+  padding-left: 3%;
   margin-top: 6vh;
   margin-bottom: 5vh;
-  font-size: 115%;
+  font-size: auto;
+}
+
+@media(min-width: 750px) {
+  .docContainer {
+    float: left;
+    margin-left: 350px;
+    padding-left: 3%;
+    margin-top: 6vh;
+    margin-bottom: 5vh;
+    font-size: auto;
+  }
 }
 
 .footerLink {
