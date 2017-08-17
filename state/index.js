@@ -4,6 +4,7 @@ module.exports = {
   selectedLang: 'Javascript',
   langBoxShowing: false,
   sideBarMobile: true,
+  htmlDisplay: null,
   langOptions: [
     'Javascript',
     'NodeJS',

@@ -7,6 +7,11 @@ module.exports = function langBoxShowing (state = initialState.langBoxShowing, a
 
       break;
 
+    case 'TOGGLE_DISPLAY_LANG':
+      return false
+
+      break;
+
     default:
       return state
   }

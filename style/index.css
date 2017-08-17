@@ -63,10 +63,10 @@ body {
 }
 
 #expandTab {
-  height: 5vh;
+  height: 4.5vh;
   width: 8%;
   float: right;
-  margin-top: .1vh;
+  margin-top: .2vh;
   margin-left: 2%;
   z-index: -1; position: fixed;
 }
@@ -113,7 +113,7 @@ body {
   margin-right: 3%;
 }
 
-.docContainer {
+.dsmtp2go-doc-container {
   float: left;
   margin-left: 0px;
   padding-left: 3%;
@@ -123,7 +123,7 @@ body {
 }
 
 @media(min-width: 750px) {
-  .docContainer {
+  .smtp2go-doc-container {
     float: left;
     margin-left: 350px;
     padding-left: 3%;
