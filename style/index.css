@@ -179,3 +179,11 @@ body {
   padding-top: 1vh;
   padding-bottom: 1vh;
 }
+
+.typeText {
+  color: green;
+}
+
+.descriptionText {
+  font-style: italic;
+}

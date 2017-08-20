@@ -1,6 +1,8 @@
 const React = require('react')
 const renderHTML= require('react-render-html')
 
+const EmailBounces = require('./statistics/email-bounces')
+
 const { getHtml } = require('../../services/get-html')
 
 const intitialState = require('../../state')
@@ -23,9 +25,16 @@ class Mainpage extends React.Component {
   render () {
     const state = this.props.state || intitialState
     const { page, htmlDisplay } = state
-    const html = htmlDisplay
+
+    let html = null //replace null with spinner
+
+    if (page === '/readme') {
+      html = htmlDisplay
       ? renderHTML(htmlDisplay)
       : null
+    }else{
+      html = <EmailBounces/>
+    }
 
     return (
       <div className='docContainer'>

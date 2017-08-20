@@ -1,6 +1,6 @@
 module.exports = {
   route: '/',
-  page: '/readme',
+  page: '/statistics',
   selectedLang: 'Javascript',
   langBoxShowing: false,
   sideBarMobile: true,
