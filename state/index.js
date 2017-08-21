@@ -10,6 +10,8 @@ module.exports = {
       '/email_bounces': {
         parameters: 'schema',
         response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
       }
     }
   },
