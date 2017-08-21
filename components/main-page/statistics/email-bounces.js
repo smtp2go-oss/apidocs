@@ -52,10 +52,52 @@ class EmailBounces extends React.Component {
         }
       }
 
+      function constructHtmlBox (responses, page, section, subsection, display) {
+        return (
+          <div>
+            <div
+              className='toggleBox'
+              style={styles[subsection].schema}
+              onClick={() => dispatch({
+                type: 'SHOW_SECTION',
+                payload: {
+                  page: page,
+                  section: section,
+                  subsection: subsection,
+                  value: 'schema'
+                }
+              })}
+            >
+              Schema
+            </div>
+            <div
+              className='toggleBox'
+              style={styles[subsection].example}
+              onClick={() => dispatch({
+                type: 'SHOW_SECTION',
+                payload: {
+                  page: page,
+                  section: section,
+                  subsection: subsection,
+                  value: 'example'
+                }
+              })}
+            >
+              Example
+            </div>
+            <div
+              className='schemaBox'
+            >
+              {display}
+            </div>
+          </div>
+        )
+      }
+
       return (
         <div>
-          <h4>Report on email bounce statistics</h4>
-          <p>Rate limited to 1 request(s) per 60 seconds</p>
+          <h4>{responses.header}</h4>
+          <p>{responses.description}</p>
           <h5>Request Example</h5>
           <div className='schemaBox'>
             {constructExampleBox(responses.requestExample)}
@@ -72,158 +114,24 @@ class EmailBounces extends React.Component {
             <span>object</span>
             <i>&nbsp;&nbsp;required</i>
           </p>
-          <div
-            className='toggleBox'
-            style={styles.parameters.schema}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'parameters',
-                value: 'schema'
-              }
-            })}
-          >
-            Schema
-          </div>
-          <div
-            className='toggleBox'
-            style={styles.parameters.example}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'parameters',
-                value: 'example'
-              }
-            })}
-          >
-            Example
-          </div>
-          <div
-            className='schemaBox'
-          >
-            {parametersDisplay}
-          </div>
+          {constructHtmlBox(responses, page, section, 'parameters', parametersDisplay)}
           <h4>Responses</h4>
           <p style={{color: 'green'}}>200</p>
           <p>The request succeeded</p>
-          <div
-            className='toggleBox'
-            style={styles.response200.schema}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'response200',
-                value: 'schema'
-              }
-            })}
-          >
-            Schema
-          </div>
-          <div
-            className='toggleBox'
-            style={styles.response200.example}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'response200',
-                value: 'example'
-              }
-            })}
-          >
-            Example
-          </div>
-          <div
-            className='schemaBox'
-          >
-            {response200Display}
-          </div>
+          {constructHtmlBox(responses, page, section, 'response200', response200Display)}
           <p style={{color: 'orange'}}>400</p>
           <p>An error occurred</p>
-          <div
-            className='toggleBox'
-            style={styles.response400.schema}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'response400',
-                value: 'schema'
-              }
-            })}
-          >
-            Schema
-          </div>
-          <div
-            className='toggleBox'
-            style={styles.response400.example}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'response400',
-                value: 'example'
-              }
-            })}
-          >
-            Example
-          </div>
-          <div
-            className='schemaBox'
-          >
-            {response400Display}
-          </div>
+          {constructHtmlBox(responses, page, section, 'response400', response400Display)}
           <p style={{color: 'orange'}}>429</p>
           <p>Too many calls were made to this endpoint within the specified time frame</p>
-          <div
-            className='toggleBox'
-            style={styles.response429.schema}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'response429',
-                value: 'schema'
-              }
-            })}
-          >
-            Schema
-          </div>
-          <div
-            className='toggleBox'
-            style={styles.response429.example}
-            onClick={() => dispatch({
-              type: 'SHOW_SECTION',
-              payload: {
-                page: page,
-                section: section,
-                subsection: 'response429',
-                value: 'example'
-              }
-            })}
-          >
-            Example
-          </div>
-          <div
-            className='schemaBox'
-          >
-            {response429Display}
-          </div>
+          {constructHtmlBox(responses, page, section, 'response429', response429Display)}
         </div>
       )
     }
 
-    const display = constructResponses({
+    const responses = {
+      header: 'Report on email bounce statistics',
+      description: 'Rate limited to 1 request(s) per 60 seconds',
       requestExample: {
         "api_key": "api-554407F347FB4689A35C07377E61B7D5"
       },
@@ -351,7 +259,7 @@ class EmailBounces extends React.Component {
           }
         }
       }
-    }, 'statistics', '/email_bounces')
+    }
 
 
     // if (toggleBoxes.statistics['/email_bounces'].parameters === 'schema'){
@@ -361,7 +269,7 @@ class EmailBounces extends React.Component {
     // }
 
     return (
-      <div>{display}</div>
+      <div>{constructResponses(responses, 'statistics', '/email_bounces')}</div>
     )
   }
 }
