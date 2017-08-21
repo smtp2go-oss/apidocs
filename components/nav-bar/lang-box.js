@@ -50,6 +50,7 @@ class LangBox extends React.Component {
     return (
       <div
         id='langSelect'
+        onClick={()=>dispatch({type: 'TOGGLE_LANG_BOX'})}
         onMouseEnter={()=>dispatch({type: 'TOGGLE_LANG_BOX'})}
         onMouseLeave={()=>dispatch({type: 'TOGGLE_LANG_BOX'})}
       >{display}

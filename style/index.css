@@ -63,10 +63,10 @@ body {
 }
 
 #expandTab {
-  height: 5vh;
+  height: 4.5vh;
   width: 8%;
   float: right;
-  margin-top: .1vh;
+  margin-top: .2vh;
   margin-left: 2%;
   z-index: -1; position: fixed;
 }
@@ -178,4 +178,21 @@ body {
   padding-left: 0.5vh;
   padding-top: 1vh;
   padding-bottom: 1vh;
+}
+
+.typeText {
+  color: green;
+}
+
+.descriptionText {
+  font-style: italic;
+}
+
+.toggleBox {
+  display: inline;
+  background-color: #7be;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding: 8px;
+  cursor: pointer;
 }

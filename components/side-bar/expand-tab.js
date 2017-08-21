@@ -13,7 +13,7 @@ class ExpandTab extends React.Component {
       >
       <img
         id='expandTab'
-        src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png'
+        src='https://rentllama.com/assets/icon-mobileMenu-957fc6f7c2d9a17985067e390315ff70da8d29feff83d766d1395ae2d29276a2.svg'
       >
       </img>
       </div>

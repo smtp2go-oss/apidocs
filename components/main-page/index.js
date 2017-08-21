@@ -1,56 +1,44 @@
 const React = require('react')
+const renderHTML= require('react-render-html')
 
-const Readme = require('./readme')
-const Statistics = require('./statistics')
-const Emails = require('./emails')
-const EmailBlocklist = require('./email-blocklist')
-const SmtpUsers = require('./smtp-users')
+const EmailBounces = require('./statistics/email-bounces')
+
+const { getHtml } = require('../../services/get-html')
 
 const intitialState = require('../../state')
 
-function setDisplay (page, state) {
-  switch (page) {
-    case '/readme':
-      return <Readme />
+class Mainpage extends React.Component {
 
-      break;
+  componentDidMount(){
 
-    case '/statistics':
-      return <Statistics />
-
-      break;
-
-    case '/emails':
-      return <Emails />
-
-      break;
-
-    case '/emailBlocklist':
-      return <EmailBlocklist />
-
-      break;
-
-    case '/smtpUsers':
-      return <SmtpUsers />
-
-      break;
-
-    default:
-      return
+    getHtml('index', (err, res) => {
+      if(err){
+        console.error(err)
+      }else{
+        const display = JSON.stringify(res.body.html)
+        this.props.dispatch({type: 'GET_HTML', payload: display})
+      }
+    })
 
   }
-}
-
-class Mainpage extends React.Component {
 
   render () {
     const state = this.props.state || intitialState
-    const { page } = state
+    const { page, htmlDisplay } = state
 
-    const display = setDisplay(page, state)
+    let html = null //replace null with spinner
+
+    if (page === '/readme') {
+      html = htmlDisplay
+      ? renderHTML(htmlDisplay)
+      : null
+    }else{
+      html = <EmailBounces {...this.props}/>
+    }
+
     return (
-      <div id='mainPage'>
-        {display}
+      <div className='docContainer'>
+        {html}
       </div>
     )
   }

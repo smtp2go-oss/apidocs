@@ -1,9 +1,18 @@
 module.exports = {
   route: '/',
-  page: '/readme',
+  page: '/statistics',
   selectedLang: 'Javascript',
   langBoxShowing: false,
   sideBarMobile: true,
+  htmlDisplay: null,
+  toggleBoxes: {
+    statistics: {
+      '/email_bounces': {
+        parameters: 'schema',
+        response200: 'schema',
+      }
+    }
+  },
   langOptions: [
     'Javascript',
     'NodeJS',
