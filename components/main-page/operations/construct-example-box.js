@@ -15,7 +15,7 @@ function constructExampleBox (example) {
         )
       })}
 
-}`
+  }`
     )
     return (
 `

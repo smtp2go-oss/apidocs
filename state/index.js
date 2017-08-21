@@ -8,7 +8,8 @@ module.exports = {
   toggleBoxes: {
     statistics: {
       '/email_bounces': {
-        parameters: 'schema'
+        parameters: 'schema',
+        response200: 'schema',
       }
     }
   },

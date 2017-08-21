@@ -26,29 +26,8 @@ class EmailBounces extends React.Component {
         "api_key": "api-554407F347FB4689A35C07377E61B7D5"
       })
 
-    const openBrace = '{'
-    const indent = (<span>&nbsp;&nbsp;</span>)
-    const styles = {
-      parameters: {
-        example: {},
-        schema: {}
-      }
-    }
-
-    return (
-      <div>
-        <h4>Report on email bounce statistics</h4>
-        <p>Rate limited to 1 request(s) per 60 seconds</p>
-        <h5>Request Example</h5>
-        {constructSchemaBox({
-          api_key: {
-            name: 'api_key',
-            type: 'string',
-            description: 'A full API Key from the API Keys admin console.'
-          }
-        })}
-        <h5>Response Example</h5>
-        {constructSchemaBox({
+    const response200Display = toggleBoxes.statistics['/email_bounces'].response200 === 'schema'
+      ? constructSchemaBox({
           data: {
             emails: {
             name: 'emails',
@@ -81,7 +60,51 @@ class EmailBounces extends React.Component {
           type: 'string',
           description: 'A Unique ID for this request'
         }
+      })
+      : constructExampleBox({
+          "request_id": "2917fc07-d685-4fea-b49a-14087058461f",
+          "data": {
+            "emails": 159,
+            "rejects": 0,
+            "softbounces": 0,
+            "hardbounces": 0,
+            "bounce_percent": "0.00"
+          }
+        })
+
+    const openBrace = '{'
+    const indent = (<span>&nbsp;&nbsp;</span>)
+    const styles = {
+      parameters: {
+        example: {},
+        schema: {}
+      },
+      response200: {
+        example: {},
+        schema: {}
+      }
+    }
+
+    return (
+      <div>
+        <h4>Report on email bounce statistics</h4>
+        <p>Rate limited to 1 request(s) per 60 seconds</p>
+        <h5>Request Example</h5>
+        {constructExampleBox({
+          "api_key": "api-554407F347FB4689A35C07377E61B7D5"
         })}
+        <h5>Response Example</h5>
+        {constructExampleBox({
+            "request_id": "2917fc07-d685-4fea-b49a-14087058461f",
+            "data": {
+              "emails": 159,
+              "rejects": 0,
+              "softbounces": 0,
+              "hardbounces": 0,
+              "bounce_percent": "0.00"
+            }
+          })
+        }
         <button>Try it out</button>
         <h4>Parameters</h4>
         <p>
@@ -124,27 +147,38 @@ class EmailBounces extends React.Component {
         <h4>Responses</h4>
         <p style={{color: 'green'}}>200</p>
         <p>The request succeeded</p>
-        <span>Schema</span><span>Example</span> //add onclick toggle to diplay below
-        <pre>
-        {openBrace}<br/>
-        {indent}data: {openBrace}<br/>
-        {indent}{indent}emails: <span className='typeText'>integer</span><br/>
-        {indent}{indent}<span className='descriptionText'>The total number of emails send during the last 30 day period</span><br/>
-        {indent}{indent}rejects: <span className='typeText'>integer</span><br/>
-        {indent}{indent}<span className='descriptionText'>How many of those emails sent were rejected</span><br/>
-        {indent}{indent}softbounces: <span className='typeText'>integer</span><br/>
-        {indent}{indent}<span className='descriptionText'>How many of those rejects were softbounces</span><br/>
-        {indent}{indent}hardbounces: <span className='typeText'>integer</span><br/>
-        {indent}{indent}<span className='descriptionText'>How many of those emails were hardbounces</span><br/>
-        {indent}{indent}bounce_percent: <span className='typeText'>string</span><br/>
-        {indent}{indent}<span className='descriptionText'>Percentage of emails sent that were bounced</span><br/>
-        {indent}}<br/>
-        {indent}request_id: <span className='typeText'>string</span><br/>
-        {indent}<span className='descriptionText'>A Unique ID for this request</span><br/>
-        }
-        </pre>
-        {
-          constructSchemaBox({
+        <div
+          className='toggleBox'
+          style={styles.response200.schema}
+          onClick={() => dispatch({
+            type: 'SHOW_SECTION',
+            payload: {
+              page: 'statistics',
+              section: '/email_bounces',
+              subsection: 'response200',
+              value: 'schema'
+            }
+          })}
+        >
+          Schema
+        </div>
+        <div
+          className='toggleBox'
+          style={styles.response200.example}
+          onClick={() => dispatch({
+            type: 'SHOW_SECTION',
+            payload: {
+              page: 'statistics',
+              section: '/email_bounces',
+              subsection: 'response200',
+              value: 'example'
+            }
+          })}
+        >
+          Example
+        </div>
+        {response200Display}
+        {constructSchemaBox({
             data:	{
               error_code:	{
                 name: 'error_code',

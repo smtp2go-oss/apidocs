@@ -22,7 +22,7 @@ function constructSchemaBox(schema){
           htmlString = (
 `
   ${key}: {${constructHtmlObject(schema[key])}
-},
+  },
           `)
         }
         return renderHTML(htmlString)
@@ -38,8 +38,7 @@ function constructSchemaBox(schema){
 
 
 function constructHtmlObject (obj) {
-    return `
-    ${Object.keys(obj).map(key => {
+    return `${Object.keys(obj).map(key => {
       return (
 `
 
