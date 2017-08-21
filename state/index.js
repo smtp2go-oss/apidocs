@@ -5,6 +5,13 @@ module.exports = {
   langBoxShowing: false,
   sideBarMobile: true,
   htmlDisplay: null,
+  toggleBoxes: {
+    statistics: {
+      '/email_bounces': {
+        parameters: 'schema'
+      }
+    }
+  },
   langOptions: [
     'Javascript',
     'NodeJS',

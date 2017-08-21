@@ -1,62 +1,39 @@
 const React = require('react')
 const renderHTML= require('react-render-html')
 
+const intitialState = require('../../../state')
+const constructSchemaBox = require('../operations/construct-schema-box')
+const constructExampleBox = require('../operations/construct-example-box')
+
 const { getHtml } = require('../../../services/get-html')
 
 class EmailBounces extends React.Component {
 
-  componentDidMount(){
-
-  }
-
   render () {
-    //the indenture of this is out because renderHTML takes the literal indenture
-    //from the page and applies it to the html, great module aside from that...
-    function constructSchemaBox(schema){
-      const openBrace = '{'
-      const htmlObject = (
-        <pre>
-          {openBrace}
-          {Object.keys(schema).map(key => {
-            let htmlString = null
-            if(schema[key].type){
-              htmlString = `
-    ${schema[key].name}: <span className='typeText'>${schema[key].type}</span>
-    <span className='descriptionText'>${schema[key].description}</span>
-}
-              `
-            }else{
-              htmlString = `
-  ${key}: {
-    ${constructHtmlObject(schema[key])}
-  },
-              `
-            }
-            return renderHTML(htmlString)
-          })}
-        </pre>
-      )
-      return (
-        <div>
-          {htmlObject}
-        </div>
-      )
-    }
+    const dispatch = this.props.dispatch
+    const state = this.props.state || intitialState
+    const { toggleBoxes } = state
 
-
-    function constructHtmlObject (obj) {
-        return `
-        ${Object.keys(obj).map(key => {
-          return `
-    ${key}: <span className='typeText'>${obj[key].type}</span>
-    <span className='descriptionText'>${obj[key].description}</span>
-          `
-        })}
-        `
-    }
+    const parametersDisplay = toggleBoxes.statistics['/email_bounces'].parameters === 'schema'
+      ? constructSchemaBox({
+          api_key: {
+            name: 'api_key',
+            type: 'string',
+            description: 'A full API Key from the API Keys admin console.'
+          }
+        })
+      : constructExampleBox({
+        "api_key": "api-554407F347FB4689A35C07377E61B7D5"
+      })
 
     const openBrace = '{'
     const indent = (<span>&nbsp;&nbsp;</span>)
+    const styles = {
+      parameters: {
+        example: {},
+        schema: {}
+      }
+    }
 
     return (
       <div>
@@ -108,18 +85,42 @@ class EmailBounces extends React.Component {
         <button>Try it out</button>
         <h4>Parameters</h4>
         <p>
-          <span><strong class="ng-binding">body</strong></span>
+          <span><strong>body</strong></span>
           {indent}
-          <span data-parameter-type="object"><span class="ng-binding">object</span></span>
-          <i ng-show="parameter.required" class="">&nbsp;&nbsp;required</i>
+          <span>object</span>
+          <i>&nbsp;&nbsp;required</i>
         </p>
-        <span>Schema</span><span>Example</span> //add onclick toggle to diplay below
-        <pre>
-          {openBrace}<br/>
-          {indent}"api_key": <span className='typeText'>string</span><br/>
-          {indent}<span className='descriptionText'>A full API Key from the API Keys admin console.</span><br/>
-          }
-        </pre>
+        <div
+          className='toggleBox'
+          style={styles.parameters.schema}
+          onClick={() => dispatch({
+            type: 'SHOW_SECTION',
+            payload: {
+              page: 'statistics',
+              section: '/email_bounces',
+              subsection: 'parameters',
+              value: 'schema'
+            }
+          })}
+        >
+          Schema
+        </div>
+        <div
+          className='toggleBox'
+          style={styles.parameters.example}
+          onClick={() => dispatch({
+            type: 'SHOW_SECTION',
+            payload: {
+              page: 'statistics',
+              section: '/email_bounces',
+              subsection: 'parameters',
+              value: 'example'
+            }
+          })}
+        >
+          Example
+        </div>
+        {parametersDisplay}
         <h4>Responses</h4>
         <p style={{color: 'green'}}>200</p>
         <p>The request succeeded</p>

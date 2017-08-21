@@ -33,7 +33,7 @@ class Mainpage extends React.Component {
       ? renderHTML(htmlDisplay)
       : null
     }else{
-      html = <EmailBounces/>
+      html = <EmailBounces {...this.props}/>
     }
 
     return (

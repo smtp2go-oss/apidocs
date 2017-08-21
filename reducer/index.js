@@ -12,6 +12,7 @@ const subheaderStyles = require('./subheader-styles')
 const langBoxStyles = require('./lang-box-styles')
 const sideBarMobile = require('./side-bar-mobile')
 const htmlDisplay = require('./html-display')
+const toggleBoxes = require('./toggle-boxes')
 
 module.exports = combineReducers({
   selectedLang,
@@ -25,5 +26,6 @@ module.exports = combineReducers({
   subheaderStyles,
   langBoxStyles,
   sideBarMobile,
-  htmlDisplay
+  htmlDisplay,
+  toggleBoxes
 })
