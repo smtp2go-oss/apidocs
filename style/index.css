@@ -19,7 +19,7 @@ body {
   float: left;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   #navLogo{
     margin-left: 0%;
     width: auto;
@@ -122,7 +122,7 @@ body {
   font-size: auto;
 }
 
-@media(min-width: 750px) {
+@media(min-width: 1000px) {
   .docContainer {
     float: left;
     margin-left: 350px;
@@ -189,10 +189,33 @@ body {
 }
 
 .toggleBox {
+  color: white;
+  border: 1px solid;
+  border-color: #269abc; 
   display: inline;
   background-color: #7be;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding: 8px;
+  padding: 10px;
+  padding-left: 12.5px;
+  padding-right: 12.5;
   cursor: pointer;
+}
+
+.schemaBox {
+  margin-top: 10px;
+  align-items: center;
+  font-size: 75%;
+  overflow:scroll;
+  width: 90vw;
+  display: block;
+  border: 1px solid;
+  border-color: #ccc;
+  padding: 10px;
+}
+
+@media(min-width: 1000px){
+  .schemaBox {
+    font-size: 100%;
+    overflow:scroll;
+    width: 60vw;
+  }
 }

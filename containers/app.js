@@ -18,10 +18,10 @@ class App extends Component {
     return (
       <div>
         <NavBar {...this.props}/>
-        <Media query='(max-width: 750px)'>
+        <Media query='(max-width: 1000px)'>
           <SideBarMobile {...this.props}/>
         </Media>
-        <Media query='(min-width: 750px)'>
+        <Media query='(min-width: 1000px)'>
           <SideBar {...this.props}/>
         </Media>
         <MainPage {...this.props}/>

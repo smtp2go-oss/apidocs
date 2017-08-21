@@ -74,15 +74,20 @@ class EmailBounces extends React.Component {
 
     const openBrace = '{'
     const indent = (<span>&nbsp;&nbsp;</span>)
-    const styles = {
+    let styles = {
       parameters: {
-        example: {},
-        schema: {}
+        example: {backgroundColor: null},
+        schema: {backgroundColor: null}
       },
       response200: {
         example: {},
         schema: {}
       }
+    }
+    if (toggleBoxes.statistics['/email_bounces'].parameters === 'schema'){
+      styles.parameters.schema.backgroundColor = '#3bd'
+    }else{
+      styles.parameters.example.backgroundColor = '#3bd'
     }
 
     return (
@@ -90,11 +95,14 @@ class EmailBounces extends React.Component {
         <h4>Report on email bounce statistics</h4>
         <p>Rate limited to 1 request(s) per 60 seconds</p>
         <h5>Request Example</h5>
-        {constructExampleBox({
-          "api_key": "api-554407F347FB4689A35C07377E61B7D5"
-        })}
+        <div className='schemaBox'>
+          {constructExampleBox({
+            "api_key": "api-554407F347FB4689A35C07377E61B7D5"
+          })}
+        </div>
         <h5>Response Example</h5>
-        {constructExampleBox({
+        <div className='schemaBox'>
+          {constructExampleBox({
             "request_id": "2917fc07-d685-4fea-b49a-14087058461f",
             "data": {
               "emails": 159,
@@ -103,8 +111,8 @@ class EmailBounces extends React.Component {
               "hardbounces": 0,
               "bounce_percent": "0.00"
             }
-          })
-        }
+          })}
+        </div>
         <button>Try it out</button>
         <h4>Parameters</h4>
         <p>
@@ -143,7 +151,11 @@ class EmailBounces extends React.Component {
         >
           Example
         </div>
-        {parametersDisplay}
+        <div
+          className='schemaBox'
+        >
+          {parametersDisplay}
+        </div>
         <h4>Responses</h4>
         <p style={{color: 'green'}}>200</p>
         <p>The request succeeded</p>
@@ -177,8 +189,13 @@ class EmailBounces extends React.Component {
         >
           Example
         </div>
-        {response200Display}
-        {constructSchemaBox({
+        <div
+          className='schemaBox'
+        >
+          {response200Display}
+        </div>
+        <div className='schemaBox'>
+          {constructSchemaBox({
             data:	{
               error_code:	{
                 name: 'error_code',
@@ -196,8 +213,8 @@ class EmailBounces extends React.Component {
               type: 'string',
               description: 'A Unique ID for this request'
             }
-          })
-        }
+          })}
+        </div>
       </div>
     )
   }
