@@ -14,7 +14,7 @@ class NavBar extends React.Component {
 
     return (
       <div id='navBar'>
-        <Media query='(max-width: 750px)'>
+        <Media query='(max-width: 1000px)'>
           <ExpandTab {...this.props}/>
         </Media>
         <img
