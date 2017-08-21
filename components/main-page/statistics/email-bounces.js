@@ -10,6 +10,51 @@ class EmailBounces extends React.Component {
   }
 
   render () {
+    //the indenture of this is out because renderHTML takes the literal indenture
+    //from the page and applies it to the html, great module aside from that...
+    function constructSchemaBox(schema){
+      const openBrace = '{'
+      const htmlObject = (
+        <pre>
+          {openBrace}
+          {Object.keys(schema).map(key => {
+            let htmlString = null
+            if(schema[key].type){
+              htmlString = `
+    ${schema[key].name}: <span className='typeText'>${schema[key].type}</span>
+    <span className='descriptionText'>${schema[key].description}</span>
+}
+              `
+            }else{
+              htmlString = `
+  ${key}: {
+    ${constructHtmlObject(schema[key])}
+  },
+              `
+            }
+            return renderHTML(htmlString)
+          })}
+        </pre>
+      )
+      return (
+        <div>
+          {htmlObject}
+        </div>
+      )
+    }
+
+
+    function constructHtmlObject (obj) {
+        return `
+        ${Object.keys(obj).map(key => {
+          return `
+    ${key}: <span className='typeText'>${obj[key].type}</span>
+    <span className='descriptionText'>${obj[key].description}</span>
+          `
+        })}
+        `
+    }
+
     const openBrace = '{'
     const indent = (<span>&nbsp;&nbsp;</span>)
 
@@ -18,24 +63,48 @@ class EmailBounces extends React.Component {
         <h4>Report on email bounce statistics</h4>
         <p>Rate limited to 1 request(s) per 60 seconds</p>
         <h5>Request Example</h5>
-        <pre>
-          {openBrace}<br/>
-          {indent}"api_key": "api-554407F347FB4689A35C07377E61B7D5"<br/>
+        {constructSchemaBox({
+          api_key: {
+            name: 'api_key',
+            type: 'string',
+            description: 'A full API Key from the API Keys admin console.'
           }
-        </pre>
+        })}
         <h5>Response Example</h5>
-        <pre>
-        {openBrace}<br/>
-          {indent}"request_id": "2917fc07-d685-4fea-b49a-14087058461f",<br/>
-          {indent}"data": {openBrace}<br/>
-            {indent}{indent}"emails": 159,<br/>
-            {indent}{indent}"rejects": 0,<br/>
-            {indent}{indent}"softbounces": 0,<br/>
-            {indent}{indent}"hardbounces": 0,<br/>
-            {indent}{indent}"bounce_percent": "0.00"<br/>
-          {indent}}<br/>
+        {constructSchemaBox({
+          data: {
+            emails: {
+            name: 'emails',
+            type: 'integer',
+            description: 'The total number of emails send during the last 30 day period'
+          },
+          rejects: {
+            name: 'rejects',
+            type: 'integer',
+            description: 'How many of those emails sent were rejected'
+          },
+          softbounces: {
+            name: 'softbounces',
+            type: 'integer',
+            description: 'How many of those rejects were softbounces'
+          },
+          hardbounces: {
+            name: 'hardbounces',
+            type: 'integer',
+            description: 'How many of those emails were hardbounces'
+          },
+          bounce_percent: {
+            name: 'bounce_percent',
+            type: 'string',
+            description: 'Percentage of emails sent that were bounced'
+          }
+        },
+        request_id: {
+          name: 'request_id',
+          type: 'string',
+          description: 'A Unique ID for this request'
         }
-        </pre>
+        })}
         <button>Try it out</button>
         <h4>Parameters</h4>
         <p>
@@ -73,6 +142,27 @@ class EmailBounces extends React.Component {
         {indent}<span className='descriptionText'>A Unique ID for this request</span><br/>
         }
         </pre>
+        {
+          constructSchemaBox({
+            data:	{
+              error_code:	{
+                name: 'error_code',
+                type: 'string',
+                description: 'An API Error Code string'
+              },
+              error: {
+                name: 'error',
+                type: 'string',
+                description: 'An error string'
+              }
+            },
+            request_id: {
+              name: 'request_id',
+              type: 'string',
+              description: 'A Unique ID for this request'
+            }
+          })
+        }
       </div>
     )
   }
