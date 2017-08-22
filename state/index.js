@@ -1,13 +1,43 @@
 module.exports = {
   route: '/',
-  page: '/statistics',
+  page: '/readme',
   selectedLang: 'Javascript',
   langBoxShowing: false,
   sideBarMobile: true,
   htmlDisplay: null,
   toggleBoxes: {
     statistics: {
-      '/email_bounces': {
+      'stats/email_bounces': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      'stats/email_cycle': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      'stats/email_history': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      'stats/email_spam': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      'stats/email_summary': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      'stats/email_unsubs': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',

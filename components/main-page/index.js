@@ -2,6 +2,7 @@ const React = require('react')
 const renderHTML= require('react-render-html')
 
 const EmailBounces = require('./statistics/email-bounces')
+const EmailCycle = require('./statistics/email-cycle')
 
 const { getHtml } = require('../../services/get-html')
 
@@ -27,13 +28,24 @@ class Mainpage extends React.Component {
     const { page, htmlDisplay } = state
 
     let html = null //replace null with spinner
+    switch (page) {
 
-    if (page === '/readme') {
-      html = htmlDisplay
-      ? renderHTML(htmlDisplay)
-      : null
-    }else{
-      html = <EmailBounces {...this.props}/>
+      case '/readme':
+        html = htmlDisplay
+          ? renderHTML(htmlDisplay)
+          : null
+        break;
+
+      case '/stats/email_bounces':
+        html = <EmailBounces {...this.props}/>
+        break;
+
+      case '/stats/email_cycle':
+        html = <EmailBounces {...this.props}/>
+        break;
+
+      default:
+
     }
 
     return (

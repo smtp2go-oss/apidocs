@@ -191,7 +191,7 @@ body {
 .toggleBox {
   color: white;
   border: 1px solid;
-  border-color: #269abc; 
+  border-color: #269abc;
   display: inline;
   background-color: #7be;
   padding: 10px;
@@ -218,4 +218,8 @@ body {
     overflow:scroll;
     width: 60vw;
   }
+}
+
+.hiddenInput {
+  visibility: hidden;
 }

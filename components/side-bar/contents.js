@@ -66,22 +66,24 @@ class Contents extends React.Component {
         ? subheaderStyles.backgroundColor
         : null
       return (
-          <a href={`#${subheader}`} className='subheaderLink'>
-            <div
-              className='contentsSubheader'
-              onMouseEnter={()=> dispatch({
-                type: 'SUBHEADER_MOUSE_ENTER',
-                payload: subheader
-              })}
-              onMouseLeave={()=> dispatch({
-                type: 'SUBHEADER_MOUSE_LEAVE',
-                payload: subheader
-              })}
-              style={{backgroundColor: backgroundColor}}
-            >
-              {subheader}
-            </div>
-          </a>
+          <div
+            className='contentsSubheader'
+            onMouseEnter={()=> dispatch({
+              type: 'SUBHEADER_MOUSE_ENTER',
+              payload: subheader
+            })}
+            onMouseLeave={()=> dispatch({
+              type: 'SUBHEADER_MOUSE_LEAVE',
+              payload: subheader
+            })}
+            onClick={() => {dispatch({
+              type: 'TOGGLE_PAGE_DISPLAY',
+              payload: subheader
+            })}}
+            style={{backgroundColor: backgroundColor}}
+          >
+            {subheader}
+        </div>
       )
     }
 
