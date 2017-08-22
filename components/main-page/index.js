@@ -1,8 +1,8 @@
 const React = require('react')
 const renderHTML= require('react-render-html')
 
-const EmailBounces = require('./statistics/email-bounces')
-const EmailCycle = require('./statistics/email-cycle')
+const constructResponses = require('./operations/construct-responses')
+const exampleResponses = require('../../exampleApi')
 
 const { getHtml } = require('../../services/get-html')
 
@@ -24,8 +24,10 @@ class Mainpage extends React.Component {
   }
 
   render () {
+    const dispatch = this.props.dispatch
     const state = this.props.state || intitialState
-    const { page, htmlDisplay } = state
+    const { page, htmlDisplay, toggleBoxes } = state
+    const section = page.split('/')[1]
 
     let html = null //replace null with spinner
     switch (page) {
@@ -36,15 +38,13 @@ class Mainpage extends React.Component {
           : null
         break;
 
-      case '/stats/email_bounces':
-        html = <EmailBounces {...this.props}/>
-        break;
-
-      case '/stats/email_cycle':
-        html = <EmailBounces {...this.props}/>
+      case '/email/search':
+        html = (<div>hello</div>)
         break;
 
       default:
+        html = constructResponses(exampleResponses, section, page, dispatch, toggleBoxes)
+        break;
 
     }
 
