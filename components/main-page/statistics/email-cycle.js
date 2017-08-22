@@ -6,7 +6,7 @@ const intitialState = require('../../../state')
 const constructResponses = require('../operations/construct-responses')
 const responses = require('../../../exampleApi')
 
-class EmailBounces extends React.Component {
+class EmailCycle extends React.Component {
 
   render () {
 
@@ -16,11 +16,11 @@ class EmailBounces extends React.Component {
 
     return (
       <div>
-        {constructResponses(responses, 'statistics', 'stats/email_bounces', dispatch, toggleBoxes)}
+        {constructResponses(responses, 'statistics', 'stats/email_cycle', dispatch, toggleBoxes)}
       </div>
     )
   }
 }
 
 
-module.exports = EmailBounces
+module.exports = EmailCycle
