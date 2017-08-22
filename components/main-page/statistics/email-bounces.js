@@ -13,11 +13,6 @@ class EmailBounces extends React.Component {
     const dispatch = this.props.dispatch
     const state = this.props.state || intitialState
     const { toggleBoxes } = state
-    // if (toggleBoxes.statistics['/email_bounces'].parameters === 'schema'){
-    //   styles.parameters.schema.backgroundColor = '#3bd'
-    // }else{
-    //   styles.parameters.example.backgroundColor = '#3bd'
-    // }
 
     return (
       <div>

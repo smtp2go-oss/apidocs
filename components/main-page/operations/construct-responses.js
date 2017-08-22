@@ -42,6 +42,14 @@ function constructResponses(responses, page, section, dispatch, toggleBoxes) {
     }
   }
 
+  Object.keys(styles).forEach(styleSection => {
+    if (toggleBoxes[page][section][styleSection] === 'schema'){
+      styles[styleSection].schema.backgroundColor = '#3bd'
+    }else{
+      styles[styleSection].example.backgroundColor = '#3bd'
+    }
+  })
+
   function constructHtmlBox (responses, page, section, subsection, display) {
     return (
       <div>
