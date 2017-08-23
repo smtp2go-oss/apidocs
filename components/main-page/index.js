@@ -1,6 +1,8 @@
 const React = require('react')
 const renderHTML= require('react-render-html')
 
+const constructEmailSearch = require('./operations/construct-email-search')
+
 const constructResponses = require('./operations/construct-responses')
 const exampleResponses = require('../../exampleApi')
 
@@ -39,7 +41,7 @@ class Mainpage extends React.Component {
         break;
 
       case '/email/search':
-        html = (<div>hello</div>)
+        html = constructEmailSearch(exampleResponses, section, page, dispatch, toggleBoxes)
         break;
 
       default:

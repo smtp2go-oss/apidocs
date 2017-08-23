@@ -6,7 +6,7 @@ const constructSchemaBox = require('./construct-schema-box')
 const constructExampleBox = require('./construct-example-box')
 const constructHtmlBox = require('./construct-html-box')
 
-function constructResponses(responses, page, section, dispatch, toggleBoxes) {
+function constructEmailSearch(responses, page, section, dispatch, toggleBoxes) {
 
   const parametersDisplay = toggleBoxes[page][section].parameters === 'schema'
   ? constructSchemaBox(responses.parameters.schema)
@@ -92,8 +92,4 @@ function constructResponses(responses, page, section, dispatch, toggleBoxes) {
   )
 }
 
-
-
-
-
-module.exports = constructResponses
+module.exports = constructEmailSearch
