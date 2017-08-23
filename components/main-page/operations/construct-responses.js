@@ -77,17 +77,17 @@ function constructResponses(responses, page, section, dispatch, toggleBoxes) {
     <span style={{color: 'blue'}}>object</span>
     <i>&nbsp;&nbsp;required</i>
     </p>
-    {constructHtmlBox(responses, page, section, 'parameters', parametersDisplay, styles)}
+    {constructHtmlBox(responses, page, section, 'parameters', parametersDisplay, styles, dispatch)}
     <h4>Responses</h4>
     <p style={{color: 'green'}}>200</p>
     <p>The request succeeded</p>
-    {constructHtmlBox(responses, page, section, 'response200', response200Display, styles)}
+    {constructHtmlBox(responses, page, section, 'response200', response200Display, styles, dispatch)}
     <p style={{color: 'orange'}}>400</p>
     <p>An error occurred</p>
-    {constructHtmlBox(responses, page, section, 'response400', response400Display, styles)}
+    {constructHtmlBox(responses, page, section, 'response400', response400Display, styles, dispatch)}
     <p style={{color: 'orange'}}>429</p>
     <p>Too many calls were made to this endpoint within the specified time frame</p>
-    {constructHtmlBox(responses, page, section, 'response429', response429Display, styles)}
+    {constructHtmlBox(responses, page, section, 'response429', response429Display, styles, dispatch)}
     </div>
   )
 }
