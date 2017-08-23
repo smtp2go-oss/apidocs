@@ -6,38 +6,104 @@ module.exports = {
   sideBarMobile: true,
   htmlDisplay: null,
   toggleBoxes: {
-    statistics: {
-      'stats/email_bounces': {
+    stats: {
+      '/stats/email_bounces': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',
         response429: 'schema'
       },
-      'stats/email_cycle': {
+      '/stats/email_cycle': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',
         response429: 'schema'
       },
-      'stats/email_history': {
+      '/stats/email_history': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',
         response429: 'schema'
       },
-      'stats/email_spam': {
+      '/stats/email_spam': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',
         response429: 'schema'
       },
-      'stats/email_summary': {
+      '/stats/email_summary': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',
         response429: 'schema'
       },
-      'stats/email_unsubs': {
+      '/stats/email_unsubs': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      }
+    },
+    email: {
+      '/email/mime': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/email/search': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/email/send': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      }
+    },
+    blocklist: {
+      '/blocklist/add': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/blocklist/remove': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/blocklist/view': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      }
+    },
+    users: {
+      '/users/smtp/add': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/users/smtp/edit': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/users/smtp/remove': {
+        parameters: 'schema',
+        response200: 'schema',
+        response400: 'schema',
+        response429: 'schema'
+      },
+      '/users/smtp/view': {
         parameters: 'schema',
         response200: 'schema',
         response400: 'schema',
