@@ -5,6 +5,7 @@ module.exports = {
   langBoxShowing: false,
   sideBarMobile: true,
   htmlDisplay: null,
+  pageContent: {},
   toggleBoxes: {
     stats: {
       '/stats/email_bounces': {
