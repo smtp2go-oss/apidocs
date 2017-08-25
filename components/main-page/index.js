@@ -1,6 +1,8 @@
 const React = require('react')
 const renderHTML= require('react-render-html')
 
+const PageTemplate = require('./page-template')
+
 const constructEmailSearch = require('./operations/construct-email-search')
 
 const constructResponses = require('./operations/construct-responses')
@@ -41,7 +43,7 @@ class Mainpage extends React.Component {
         break;
 
       case '/email/search':
-        html = constructEmailSearch(exampleResponses, section, page, dispatch, toggleBoxes)
+        html = <PageTemplate {...this.props}/>
         break;
 
       default:
