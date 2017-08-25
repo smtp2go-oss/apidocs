@@ -219,3 +219,16 @@ body {
     width: 60vw;
   }
 }
+
+.loader {
+  margin-top: 5vh;
+  margin-left: 37.5vw;
+}
+
+@media(min-width: 1000px){
+  .loader {
+    float: right;
+    margin-right: 25vw;
+    margin-left: 32vw;
+  }
+}

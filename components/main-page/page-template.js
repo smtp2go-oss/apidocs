@@ -1,4 +1,7 @@
 const React = require('react')
+import { PulseLoader } from 'react-spinners';
+import Media from 'react-responsive'
+
 
 const initialState = require('../../state')
 const { endpoint, endpointsIndex } = require('../../services/endpoints')
@@ -29,9 +32,29 @@ class PageTemplate extends React.Component {
   render () {
 
     const state = this.props.state || initialState
-    const { page, pageContent } = state
-    console.log(pageContent[page])
-    let display = null //change to spinner
+    const { page, pageContent, sideBarMobile } = state
+    let display = (
+        <div
+          className='loader'
+        >
+          <PulseLoader
+            color={'#1892e6'}
+          />
+        </div>
+    )
+    if (sideBarMobile) {
+      display = (
+        <Media query='(min-width: 1000px)'>
+          <div
+            className='loader'
+          >
+            <PulseLoader
+              color={'#1892e6'}
+            />
+          </div>
+        </Media>
+      )
+    }
 
     if (pageContent[page]) {
       const primaryDescription = pageContent[page]['primary-description']
@@ -57,6 +80,7 @@ class PageTemplate extends React.Component {
       )
     }
 
+    console.log(display);
     return (
       <div>
         {display}
@@ -69,7 +93,7 @@ class PageTemplate extends React.Component {
 function convertSeconds (req_period) {
   const time = Number(req_period)
   if (time === 1) {
-    return `${time} second`
+    return '1 second'
   }
   else if (time < 60) {
     return `${time} seconds`
